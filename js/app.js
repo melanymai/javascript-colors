@@ -1,16 +1,12 @@
 const app = {
-    colors: [
-        'salmon',
-        'darkorange',
-        'plum',
-        'teal',
-    ],
-
+    colors: cssColors,
+    randomColors: [],
     colorDiv: document.querySelector('.colors'),
     form: document.getElementById('form'),
 
     init() {
-        this.colors.forEach((color) => {
+        this.getRandomColor();
+        this.randomColors.forEach((color) => {
         this.generateColorBox(color);
         });
         this.newColor();
@@ -45,6 +41,15 @@ const app = {
 
     capitalizeFirstLetter(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
+    },
+
+    getRandomColor() {
+        for (let i = 0; i < 10; i++) {
+            const randomIndex = Math.floor(Math.random() * this.colors.length);
+            this.randomColors.push(this.colors[randomIndex]);
+        }
+
+        return this.randomColors;
     }
 };
 

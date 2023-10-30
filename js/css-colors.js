@@ -1,4 +1,4 @@
-var cssColors = [
+const cssColors = [
     "aliceblue",
     "antiquewhite",
     "aqua",
