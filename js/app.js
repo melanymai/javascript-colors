@@ -7,7 +7,7 @@ const app = {
     init() {
         this.getRandomColor();
         this.randomColors.forEach((color) => {
-        this.generateColorBox(color);
+            this.generateColorBox(color);
         });
         this.newColor();
     },
@@ -22,7 +22,7 @@ const app = {
         colorBox.addEventListener('click', () => {
             document.body.style.backgroundColor = color
         });
-        
+
         this.colorDiv.appendChild(colorBox);
     },
 
