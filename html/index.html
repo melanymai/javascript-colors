@@ -6,15 +6,30 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Fond en folie</title>
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
 </head>
 <body>
 <div class="content">
-    <form id="form">
-        <label>Couleur :
-            <input name="color" type="color">
-        </label>
-        <button type="submit">Sauvegarder</button>
-    </form>
+    <h1>Hello</h1>
+    <div>
+        <div class="colors">
+            <p>Sélectionnez la couleur de fond :</p>
+        </div>
+
+        <p>Vous ne trouvez pas la couleur désirée ? Ajoutez la couleur de votre choix :)</p>
+
+        <form id="form">
+            <label>Enregistrer une nouvelle couleur de fond :
+                <input name="color" type="color">
+            </label>
+            <label>Nom :
+                <input name="name" type="text">
+            </label>
+            <button type="submit">Sauvegarder</button>
+        </form>
+    </div>
 </div>
 
 <script src="../js/css-colors.js"></script>
