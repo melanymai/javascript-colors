@@ -1,15 +1,24 @@
-.content > * {
-    width: 100px;
-    margin: 0 auto;
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+form {
+    margin-bottom: 2rem;
 }
 
 .bg-color-selector {
-    width: 100px;
-    height: 20px;
-    padding: 0.2em;
+    width: 30%;
+    height: 30px;
+    margin-bottom: 0.2rem;
+    padding: 0.2rem;
     border: 1px solid white;
+    border-radius: 5px;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.bg-color-selector:hover {
+    border: 2px solid red;
 }

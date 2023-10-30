@@ -1,46 +1,53 @@
-let app = {
+const app = {
     colors: [
-        'lightsteelblue',
-        'palegreen',
-        'crimson',
-        'sienna',
+        'salmon',
+        'darkorange',
+        'plum',
+        'teal',
     ],
 
-    contentArea: document.querySelector('.content'),
+    colorDiv: document.querySelector('.colors'),
+    form: document.getElementById('form'),
 
-    init: function() {
-        for (index in app.colors) {
-            app.generateColorBox(app.colors[index]);
-        }
-        app.newColor()
+    init() {
+        this.colors.forEach((color) => {
+        this.generateColorBox(color);
+        });
+        this.newColor();
     },
 
+    generateColorBox(color, colorName = color) {
 
+        const colorBox = document.createElement('div');
 
-    generateColorBox: function(color) {
-        let colorBox = document.createElement('div');
         colorBox.className = 'bg-color-selector';
         colorBox.style.background = color;
-        colorBox.innerText = color;
-        colorBox.addEventListener("click", function () {
+        colorBox.innerText = this.capitalizeFirstLetter(colorName);
+        colorBox.addEventListener('click', () => {
             document.body.style.backgroundColor = color
-
-        })
-        app.contentArea.appendChild(colorBox);
-        return colorBox;
+        });
+        
+        this.colorDiv.appendChild(colorBox);
     },
 
-    newColor: function() {
-        const form = document.getElementById('form')
+    newColor() {
 
-        form.addEventListener('submit', function (e) {
-            e.preventDefault()
-            const input = form.elements['color'].value
-            app.generateColorBox(input)
-            input.value = ""
-        })
+        this.form.addEventListener('submit', (e) => {
+            e.preventDefault();
 
+            const input = this.form.elements['color'].value;
+            const colorName = this.form.elements['name'].value;
+            app.generateColorBox(input, colorName);
+
+            this.form.reset();
+        });
     },
+
+    capitalizeFirstLetter(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
 };
 
-document.addEventListener('DOMContentLoaded', app.init);
+document.addEventListener('DOMContentLoaded', () => {
+    app.init();
+});
